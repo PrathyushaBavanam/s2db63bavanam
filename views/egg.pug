@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  -
+    let results = [
+      {
+        "egg_name": "Hen Egg",
+        "egg_size": "Small",
+        "egg_cost": 5
+      },
+      {
+        "egg_name": "Duck Egg",
+        "egg_size": "Medium",
+        "egg_cost": 7
+      },
+      {
+        "egg_name": "Ostrich Egg",
+        "egg_size": "Large",
+        "egg_cost": 10
+      },                   
+    ]
+  div(class= "container-fluid")
+    div(class = "row")
+      each item,index in results
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.egg_name}
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.egg_size}
+        div(class= "col-sm-2", onclick=`buy(${index})`) #{item.egg_cost}
+
+  script.
+    function buy(itemNum){
+      alert(`You purchased item ${itemNum+1}`)
+    }
