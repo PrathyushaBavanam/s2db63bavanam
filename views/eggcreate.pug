@@ -1,0 +1,31 @@
+extends layout
+block content
+    h1= title
+    form(id='eggForm', action="/resource/egg", method="POST")
+        div.form-group
+            label.eggAttr(for='egg_name') egg_name
+            input#egg_name(type='text', name='egg_name')
+        div.form-group
+            label.eggAttr(for='egg_size') egg_size
+            input#egg_size(type='text', name='egg_size')
+        div.form-group
+            label.eggAttr(for='egg_cost') egg_cost
+            input#egg_cost(type='number', name='egg_cost')
+        input(type="submit")
+    script.
+        document.forms['eggForm'].addEventListener('submit', (event) => {
+            event.preventDefault();
+            // TODO do something here to show user that form is being submitted
+            fetch(event.target.action, {
+            method: 'POST',
+            body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+        }).then((resp) => {
+            return resp.json(); // or resp.text() or whatever the server sends
+            }).then((body) => {
+        alert("Save succeded")
+        // TODO handle body
+        }).catch((error) => {
+         // TODO handle error
+        alert("Save failed " + error )
+        });
+        });
