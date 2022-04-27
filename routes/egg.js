@@ -20,12 +20,12 @@ router.get('/', egg_controllers.egg_view_all_Page );
 router.get('/detail', egg_controllers.egg_view_one_Page);
 
 /* GET create costume page */
-router.get('/create', egg_controllers.egg_create_Page);
+router.get('/create',secured, egg_controllers.egg_create_Page);
 
 /* GET create update page */
 router.get('/update',secured, egg_controllers.egg_update_Page);
 
 /* GET delete costume page */
-router.get('/delete', egg_controllers.egg_delete_Page);
+router.get('/delete',secured, egg_controllers.egg_delete_Page);
 
 module.exports = router;
