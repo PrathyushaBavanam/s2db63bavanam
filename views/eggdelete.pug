@@ -28,7 +28,7 @@ block content
     script.
         function cancel() {
         // Go back to the home page for the egg collection
-        window.location.href='/egg'
+        window.location.href='/resource/egg'
         }
     script.
         function deleteOnid() {
@@ -40,7 +40,7 @@ block content
         return resp.json(); // or resp.text() or whatever the server sends
         }).then((body) => {
         alert("Delete succeded")
-        window.location.href='/egg'
+        window.location.href='/resource/egg'
         // TODO handle body
         }).catch((error) => {
         // TODO handle error

@@ -5,7 +5,7 @@ block content
     div(class="container-fluid")
         div(class="row m-1")
             each item in items
-                - let destination = `dispatch(\"/icecream/update?id=${item._id}\")`
+                - let destination = `dispatch(\"/egg/update?id=${item._id}\")`
                 div(class="row-sm-2", class="m-1") Item #{item.egg_name}(#{item.egg_size}) is #{item.egg_cost}
                     button.btn( class="btn-primary ml-1", onclick= destination) Update
 
